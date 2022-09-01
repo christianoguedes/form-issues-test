@@ -1,7 +1,7 @@
 name: GitHub Actions Issue Example
 on:
-  issue_comment:
-    types: created
+  issues:
+    types: opened
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
