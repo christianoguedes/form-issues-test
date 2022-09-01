@@ -2,12 +2,15 @@ name: GitHub Actions Issue Example
 on:
   issues:
     types: opened
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  ISSUE_NUMBER: ${{ github.event.issue.number }}
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-    - name: Dump GitHub context
-      run: gh issue view $ISSUE_NUMBER --json title,json
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        ISSUE_NUMBER: ${{ github.event.issue.number }}
+    - name: Close Issue
+      run: gh issue close $ISSUE_NUMBER
+    - name: Show Issue
+      run: gh issue view $ISSUE_NUMBER --json title,body
+
