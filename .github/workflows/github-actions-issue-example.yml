@@ -11,6 +11,10 @@ jobs:
     steps:
     - name: Close Issue
       run: gh issue close $ISSUE_NUMBER
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Show Issue
       run: gh issue view $ISSUE_NUMBER --json title,body
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
