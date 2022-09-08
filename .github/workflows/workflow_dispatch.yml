@@ -1,4 +1,4 @@
-name: GitHub Actions Issue Example
+name: workflow dispatch example
 on: workflow_dispatch
 jobs:
   Test:
